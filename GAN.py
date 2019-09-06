@@ -201,4 +201,6 @@ def training(epochs=1, batch_size=128):
             plot_generated_images(e, generator)
 
 
-training(10, 256)
+
+if __name__ == '__main__':
+    training(400, 256)
