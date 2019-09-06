@@ -58,7 +58,6 @@ print(X_train.shape)
 def adam_optimizer():
     return adam(lr=0.0002, beta_1=0.5)
 
-
 # %%
 
 # Define Generator
@@ -110,7 +109,6 @@ def create_discriminator():
 d = create_discriminator()
 d.summary()
 
-
 # %%
 
 # Create GAN by combining the generator and discriminator
@@ -128,7 +126,6 @@ def create_gan(discriminator, generator):
 gan = create_gan(d, g)
 gan.summary()
 
-
 # %%
 
 # Define Function to Plot Generated Images
@@ -144,7 +141,6 @@ def plot_generated_images(epoch, generator, examples=100, dim=(10, 10), figsize=
         plt.axis('off')
     plt.tight_layout()
     plt.savefig('gan_generated_image %d.png' % epoch)
-
 
 # %%
 
@@ -186,7 +182,7 @@ def training(epochs=1, batch_size=128):
 
             # Tricking the noised input of the Generator as real data
             noise = np.random.normal(0, 1, [batch_size, 100])
-            y_gen = np.ones(batch_size)
+            y_gen = np.ones(batch_size) 
 
             # During the training of gan,
             # the weights of discriminator should be fixed.
@@ -199,7 +195,6 @@ def training(epochs=1, batch_size=128):
 
         if e == 1 or e % 20 == 0:
             plot_generated_images(e, generator)
-
 
 
 if __name__ == '__main__':
